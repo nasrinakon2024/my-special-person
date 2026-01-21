@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <title>ধন্যবাদ প্রিয় ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle, #800a35 0%, #2b0011 100%);
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 50px;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: pop 0.5s ease-out;
+        }
+        h1 { font-size: 50px; color: #ffcccc; margin-bottom: 10px; }
+        p { font-size: 25px; color: #ff4d4d; font-weight: bold; }
+        @keyframes pop { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="font-size: 80px; margin-bottom: 20px;">🥰</div>
+        <h1>Thank You!</h1>
+        <p>I Love You So Much! ❤️✨</p>
+        <a href="index.html" style="color: white; text-decoration: none; font-size: 14px; opacity: 0.6; margin-top: 20px; display: block;">পেছনে ফিরে যাও</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        window.onload = function() {
+            confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+        };
+    </script>
+</body>
+</html>

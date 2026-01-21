@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Love Story</title>
+   <link rel="stylesheet" href="submit.css">
     <style>
         /* 1. Global Styles */
         body {
@@ -120,98 +121,80 @@
             100% { transform: scale(1); }
         }
 
- /* 1. Options Design */
-.love-meter {
+        /* পুরো ফর্মের কন্টেন্ট মাঝখানে আনার জন্য */
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    margin-bottom: 40px;
+    width: 100%;
+    padding: 40px 0;
 }
 
+.form-section {
+    width: 90%;
+    max-width: 600px; /* একটি নির্দিষ্ট সীমার মধ্যে রাখবে */
+}
+
+/* অপশনগুলো এক লাইনে এবং মাঝখানে রাখার জন্য */
 .options {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap; /* ছোট স্ক্রিনে যাতে নিচে নামে */
     gap: 15px;
     margin-top: 20px;
+    margin-bottom: 40px;
 }
 
-.radio-card {
-    cursor: pointer;
-    position: relative;
-}
-
-.radio-card input {
-    display: none; /* Original radio button lukiye fela */
-}
-
-.radio-card .text {
-    padding: 10px 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 15px;
-    display: inline-block;
-    transition: 0.3s;
-}
-
-.radio-card input:checked + .text {
-    background: #ff4d4d;
-    border-color: #fff;
-    transform: scale(1.1);
-    box-shadow: 0 0 15px rgba(255, 77, 77, 0.5);
-}
-
-/* 2. Decision Section */
-.decision-box {
-    text-align: center;
-    padding: 30px;
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 25px;
-}
-
-.question {
-    font-size: 20px;
-    margin-bottom: 25px;
-}
-
+/* বাটন গ্রুপ এবং পজিশন */
 .btn-group {
     display: flex;
     justify-content: center;
     gap: 20px;
-    position: relative;
-    height: 60px;
+    margin-top: 30px;
+    padding-bottom: 50px;
 }
 
-.btn {
+/* সাধারণ বাটন স্টাইল */
+.btn-group button, .reject-btn {
     padding: 15px 30px;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     border-radius: 50px;
     border: none;
     cursor: pointer;
-    transition: 0.4s;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
 }
 
-/* Accept Button Style */
-.accept {
-    background: linear-gradient(45deg, #ff0844, #ffb199);
+/* 'হ্যাঁ' বা সাবমিট বাটনের ডিজাইন */
+.submit-btn {
+    background: linear-gradient(45deg, #ff4d6d, #ff8fa3); /* কিউট পিঙ্ক-রেড গ্রাডিয়েন্ট */
     color: white;
-    z-index: 2;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
 }
 
-.accept:hover {
-    transform: scale(1.2);
-    box-shadow: 0 0 25px #ff0844;
+.submit-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 77, 109, 0.6);
+    background: linear-gradient(45deg, #ff8fa3, #ff4d6d);
 }
 
-/* Reject Button CSS Magic (JavaScript charai) */
-.reject {
-    background: #444;
-    color: #888;
-    opacity: 0.7;
+/* 'না' বা রিজেক্ট বাটনের ডিজাইন */
+.reject-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ccc;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.reject:hover {
-    opacity: 0;           /* Mouse nile vanish hoye jabe */
-    pointer-events: none; /* Click kora jabe na */
-    transform: scale(0);  /* Chotto hoye muche jabe */
+/* 'না' বাটনে মাউস নিলে ভ্যানিশ হওয়ার ইফেক্ট */
+.reject-btn:hover {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none; /* ক্লিক করা যাবে না */
 }
 
   .footer {
@@ -300,37 +283,38 @@ you’re not just a part of my life — you’re my everything ❤️"</p>
         </div>
     </div>
 
-    <div class="main-content">
-    
-    <div class="love-meter">
-        <h3>তুমি আমাকে কতটুকু ভালোবাসবে? ❤️</h3>
-        <div class="options">
-            <label class="radio-card">
-                <input type="radio" name="love" checked>
-                <span class="text">এক আকাশ ☁️</span>
-            </label>
-            <label class="radio-card">
-                <input type="radio" name="love">
-                <span class="text">সারা জীবন ♾️</span>
-            </label>
-            <label class="radio-card">
-                <input type="radio" name="love">
-                <span class="text">অফুরন্ত ✨</span>
-            </label>
+ <div class="form-wrapper">
+    <form action="submit.html" class="form-section">
+        
+        <div class="love-meter-section">
+            <h3>তুমি আমাকে কতটুকু ভালোবাসবে? ❤️</h3>
+            <div class="options">
+                <label class="radio-card">
+                    <input type="radio" name="love_amount" value="এক আকাশ" required>
+                    <span class="text">এক আকাশ ☁️</span>
+                </label>
+                <label class="radio-card">
+                    <input type="radio" name="love_amount" value="সারা জীবন" checked>
+                    <span class="text">সারা জীবন ♾️</span>
+                </label>
+                <label class="radio-card">
+                    <input type="radio" name="love_amount" value="অফুরন্ত">
+                    <span class="text">অফুরন্ত ✨</span>
+                </label>
+            </div>
         </div>
-    </div>
 
-    <div class="decision-box">
-        <p class="question">তুমি কি সারাজীবন আমার পাশে থাকবে? 💍</p>
-        <div class="btn-group">
-            <button class="btn accept">হ্যাঁ, সবসময় ❤️</button>
-            
-            <button class="btn reject">না, ছেড়ে যাবো 💔</button>
-        </div>
-    </div>
-
+        <div class="decision-box">
+            <h3>তুমি কি সারাজীবন আমার পাশে থাকবে? 💍</h3>
+            <div class="btn-group">
+    <button type="submit" class="submit-btn">হ্যাঁ, সবসময় (সাবমিট করো) ❤️</button>
+    <div class="reject-btn">না, ছেড়ে যাবো 💔</div>
 </div>
+        </div>
 
+    </form>
+</div>
+   
 <footer class="footer">
     <div class="footer-content">
         <div class="footer-heart">❤️</div>
